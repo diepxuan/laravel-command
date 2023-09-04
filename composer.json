@@ -1,0 +1,24 @@
+{
+  "name": "diepxuan/laravel-pre-support",
+  "description": "The Support package for DXPanel.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tran Ngoc Duc",
+      "email": "ductn@diepxuan.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Diepxuan\\Support\\": ""
+    },
+    "files": [
+      "helpers.php"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev"
+}
