@@ -11,7 +11,7 @@ class HideCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'hide-command {command}';
+    protected $signature = 'hide-command {cmd}';
 
     /**
      * The console command description.
@@ -29,7 +29,7 @@ class HideCommand extends Command
 
     public function handle()
     {
-        $command = $this->argument('command');
+        $command = $this->argument('cmd');
 
         $this->laravel['config']->set('app.hidden', [
             $command,
