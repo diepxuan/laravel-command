@@ -1,5 +1,5 @@
 {
-  "name": "diepxuan/laravel-pre-support",
+  "name": "diepxuan/laravel-hidencommand",
   "description": "The Support package for DXPanel.",
   "license": "MIT",
   "authors": [
@@ -11,7 +11,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Diepxuan\\Support\\": ""
+      "Diepxuan\\HideCommand\\": ""
     },
     "files": [
       "helpers.php"
