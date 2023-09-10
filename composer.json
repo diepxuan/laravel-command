@@ -8,7 +8,10 @@
       "email": "ductn@diepxuan.com"
     }
   ],
-  "require": {},
+  "require": {
+    "illuminate/console": "^10.0",
+    "illuminate/support": "^10.0"
+  },
   "autoload": {
     "psr-4": {
       "Diepxuan\\HideCommand\\": ""
@@ -16,6 +19,13 @@
     "files": [
       "helpers.php"
     ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Diepxuan\\HideCommand\\HideCommandServiceProvider"
+      ]
+    }
   },
   "config": {
     "sort-packages": true
