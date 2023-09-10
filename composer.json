@@ -23,9 +23,9 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Diepxuan\\HideCommand\\ArtisanServiceProvider",
-        "Diepxuan\\HideCommand\\MigrationServiceProvider",
-        "Diepxuan\\HideCommand\\ArtisanServiceProvider"
+        "Diepxuan\\HideCommand\\HideArtisanServiceProvider",
+        "Diepxuan\\HideCommand\\HideMigrationServiceProvider",
+        "Diepxuan\\HideCommand\\HideCommandServiceProvider"
       ]
     }
   },
