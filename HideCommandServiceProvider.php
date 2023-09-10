@@ -2,7 +2,7 @@
 
 namespace Diepxuan\HideCommand;
 
-use Illuminate\Database\MigrationServiceProvider as IlluminateProvider;
+use Illuminate\Foundation\Providers\ArtisanServiceProvider as IlluminateProvider;
 use Symfony\Component\Console\Command\Command;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -103,36 +103,8 @@ use Illuminate\Routing\Console\ControllerMakeCommand;
 use Illuminate\Routing\Console\MiddlewareMakeCommand;
 use Illuminate\Session\Console\SessionTableCommand;
 
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Console\Migrations\FreshCommand;
-use Illuminate\Database\Console\Migrations\InstallCommand;
-use Illuminate\Database\Console\Migrations\MigrateCommand;
-use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
-use Illuminate\Database\Console\Migrations\RefreshCommand;
-use Illuminate\Database\Console\Migrations\ResetCommand;
-use Illuminate\Database\Console\Migrations\RollbackCommand;
-use Illuminate\Database\Console\Migrations\StatusCommand;
-use Illuminate\Database\Migrations\DatabaseMigrationRepository;
-use Illuminate\Database\Migrations\MigrationCreator;
-use Illuminate\Database\Migrations\Migrator;
-
-class MigrationServiceProvider extends IlluminateProvider
+class HideCommandServiceProvider extends ServiceProvider
 {
-    /**
-     * The commands to be registered.
-     *
-     * @var array
-     */
-    protected $commands = [
-        'Migrate' => MigrateCommand::class,
-        'MigrateFresh' => FreshCommand::class,
-        'MigrateInstall' => InstallCommand::class,
-        'MigrateRefresh' => RefreshCommand::class,
-        'MigrateReset' => ResetCommand::class,
-        'MigrateRollback' => RollbackCommand::class,
-        'MigrateStatus' => StatusCommand::class,
-        'MigrateMake' => MigrateMakeCommand::class,
-    ];
 
     private static $laravelDefaultCommands = [
         'about',
