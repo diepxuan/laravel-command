@@ -12,7 +12,7 @@ class CommandServiceProvider extends ServiceProvider
      * @var string[]
      */
     protected $providers = [
-        HideCommandServiceProvider::class,
         LoadCommandServiceProvider::class,
+        HideCommandServiceProvider::class,
     ];
 }

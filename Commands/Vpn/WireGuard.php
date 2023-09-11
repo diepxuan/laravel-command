@@ -2,9 +2,6 @@
 
 namespace Diepxuan\Command\Commands\Vpn;
 
-use Diepxuan\System\OperatingSystem as OS;
-use Illuminate\Support\Facades\Log;
-use App\Models\Sys\Vm as Model;
 use Illuminate\Console\Command;
 
 class WireGuard extends Command
