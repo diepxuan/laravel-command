@@ -2,43 +2,17 @@
 
 namespace Diepxuan\Command\Providers;
 
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Support\ServiceProvider;
-
-use Diepxuan\Command\Providers\HideCommandServiceProvider;
+use Illuminate\Support\AggregateServiceProvider as ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider
 {
     /**
-     * Register any other events for your application.
+     * The provider class names.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
-     * @return void
+     * @var string[]
      */
-    public function boot(Dispatcher $events)
-    {
-        //
-    }
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [
-            HideCommandServiceProvider::class,
-        ];
-    }
+    protected $providers = [
+        HideCommandServiceProvider::class,
+        LoadCommandServiceProvider::class,
+    ];
 }

@@ -44,6 +44,7 @@ class HideCommandServiceProvider extends ServiceProvider
         'package:discover',
         'queue:*',
         'route:*',
+        'sanctum:prune-expired',
         'schema:dump',
         'session:table',
         'storage:link',

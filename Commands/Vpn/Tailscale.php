@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Vpn;
+namespace Diepxuan\Command\Commands\Vpn;
 
 use Diepxuan\System\OperatingSystem as OS;
 use Illuminate\Support\Facades\Log;
