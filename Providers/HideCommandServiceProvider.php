@@ -1,8 +1,7 @@
 <?php
 
-namespace Diepxuan\HideCommand;
+namespace Diepxuan\Command\Providers;
 
-use Illuminate\Foundation\Providers\ArtisanServiceProvider as IlluminateProvider;
 use Symfony\Component\Console\Command\Command;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -64,10 +63,6 @@ class HideCommandServiceProvider extends ServiceProvider
         $this->app->booted(function () use ($events) {
             $this->hideLaravelCommands($events);
         });
-
-        $this->commands([
-            \Diepxuan\HideCommand\HideCommand::class,
-        ]);
     }
 
     /**

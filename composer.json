@@ -24,7 +24,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Diepxuan\\Command\\CommandServiceProvider"
+        "Diepxuan\\Command\\Providers\\CommandServiceProvider"
       ]
     }
   },
