@@ -116,7 +116,7 @@ use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Database\Migrations\Migrator;
 
-class HideMigrationServiceProvider extends IlluminateProvider
+class HideCommandMigrationServiceProvider extends IlluminateProvider
 {
     /**
      * The commands to be registered.
