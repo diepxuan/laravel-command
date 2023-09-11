@@ -1,6 +1,6 @@
 {
-  "name": "diepxuan/laravel-hidencommand",
-  "description": "The Support package for DXPanel.",
+  "name": "diepxuan/laravel-command",
+  "description": "The Commands package for DXPanel.",
   "license": "MIT",
   "authors": [
     {
