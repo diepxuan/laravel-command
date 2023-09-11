@@ -10,11 +10,12 @@
   ],
   "require": {
     "illuminate/console": "^10.0",
-    "illuminate/support": "^10.0"
+    "illuminate/support": "^10.0",
+    "diepxuan/system": "*"
   },
   "autoload": {
     "psr-4": {
-      "Diepxuan\\HideCommand\\": ""
+      "Diepxuan\\Command\\": ""
     },
     "files": [
       "helpers.php"
@@ -23,7 +24,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Diepxuan\\HideCommand\\HideCommandServiceProvider"
+        "Diepxuan\\Command\\CommandServiceProvider"
       ]
     }
   },

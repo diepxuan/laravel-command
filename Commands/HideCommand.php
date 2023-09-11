@@ -1,6 +1,6 @@
 <?php
 
-namespace Diepxuan\HideCommand;
+namespace Diepxuan\Command\Commands;
 
 use Illuminate\Console\Command;
 
