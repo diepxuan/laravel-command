@@ -4,7 +4,8 @@ namespace Diepxuan\Command\Commands\Vm;
 
 use Diepxuan\System\OperatingSystem as OS;
 use Illuminate\Support\Facades\Log;
-use App\Models\Sys\Vm as Model;
+use Diepxuan\System\OperatingSystem\Vm as Model;
+use Diepxuan\System\OperatingSystem\Wg;
 use Illuminate\Console\Command;
 
 class Update extends Command
@@ -31,10 +32,12 @@ class Update extends Command
         $this->info("  Vm informations");
         $os = new OS();
         $vm = Model::updateOrCreate(["vm_id" => $os->hostFullName]);
-        $vm->name = $os->hostName;
+        $vm->name     = $os->hostName;
         $vm->pri_host = $os->ipLocal;
         $vm->pub_host = $os->ipWan;
         $vm->version  = $os->appVersion;
+        $vm->wg_pub   = Wg::keyPublic();
+        $vm->wg_pri   = Wg::keyPrivate();
 
         // $gateway      = explode(" ", $request->input("gateway"));
         // $vm->gateway  = count($gateway) > 0 ? $gateway : $vm->gateway;
