@@ -78,6 +78,7 @@ class HideCommandServiceProvider extends ServiceProvider
 
     protected function hideLaravelCommands(Dispatcher $events = null)
     {
+        if (!ductnCliRunning()) return;
         $hideCommands = collect(Artisan::all())
             ->filter(function (Command $command) {
                 return !$command->isHidden();
