@@ -5,11 +5,11 @@ namespace Diepxuan\Command\Providers;
 use Composer\InstalledVersions as ComposerPackage;
 use Symfony\Component\Console\Command\Command;
 use Illuminate\Contracts\Events\Dispatcher;
+use Diepxuan\System\Component\SplFileInfo;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use ReflectionClass;
-use SplFileInfo;
 
 class LoadCommandServiceProvider extends ServiceProvider
 {
@@ -68,10 +68,10 @@ class LoadCommandServiceProvider extends ServiceProvider
             })
             ->map(function ($path) use ($packagePath) {
                 return collect(File::allFiles($path))
-                    ->filter(function (SplFileInfo $file) {
+                    ->filter(function ($file) {
                         return $file->getExtension() == 'php';
                     })
-                    ->map(function (SplFileInfo $file) use ($packagePath) {
+                    ->map(function ($file) use ($packagePath) {
                         return Str::of($file->getRealPath())
                             ->after($packagePath->getRealPath())
                             ->trim(DIRECTORY_SEPARATOR)

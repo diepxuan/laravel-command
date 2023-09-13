@@ -1,8 +1,8 @@
 <?php
 
-if (!function_exists("ductnCliRunning")) {
-    function ductnCliRunning()
+if (!function_exists("PharConsoleRunning")) {
+    function PharConsoleRunning(): bool
     {
-        return defined("DUCTNCLI") && DUCTNCLI;
+        return \Phar::running() != "";
     }
 }
