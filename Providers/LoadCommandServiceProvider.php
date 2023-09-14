@@ -38,7 +38,6 @@ class LoadCommandServiceProvider extends ServiceProvider
         $this->commands($this->load('Commands'));
     }
 
-
     /**
      * Register all of the commands in the given directory.
      *

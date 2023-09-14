@@ -14,5 +14,6 @@ class CommandServiceProvider extends ServiceProvider
     protected $providers = [
         LoadCommandServiceProvider::class,
         HideCommandServiceProvider::class,
+        ScheduleCommandServiceProvider::class,
     ];
 }
