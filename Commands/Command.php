@@ -52,4 +52,18 @@ abstract class Command extends BaseCommand
     {
         return parent::run($input, $this->originalOutput = $output);
     }
+
+    /**
+     * Call another console command.
+     *
+     * @param  \Symfony\Component\Console\Command\Command|string  $command
+     * @param  array  $arguments
+     * @return int
+     */
+    public function call($command, array $arguments = [])
+    {
+        if ($this->getApplication()->has($command))
+            return $this->runCommand($command, $arguments, $this->output);
+        return 0;
+    }
 }
