@@ -5,6 +5,7 @@ namespace Diepxuan\Command\Commands;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Illuminate\Console\Command as BaseCommand;
+use Illuminate\Support\Arr;
 
 abstract class Command extends BaseCommand
 {
@@ -12,6 +13,25 @@ abstract class Command extends BaseCommand
      * Holds the command original output.
      */
     protected OutputInterface $originalOutput;
+
+    /**
+     * Time format when command will be execute.
+     */
+    public string $scheduleTimeFormat = '';
+
+    /**
+     * Create a new console command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        config(['app.commands' => Arr::add(config('app.commands', []), $this->name, [
+            'timeFormat' => $this->scheduleTimeFormat ?: '',
+            'lastRunAt'  => null,
+        ])]);
+    }
 
     /**
      * Performs the given task, outputs and
@@ -62,8 +82,15 @@ abstract class Command extends BaseCommand
      */
     public function call($command, array $arguments = [])
     {
-        if ($this->getApplication()->has($command))
-            return $this->runCommand($command, $arguments, $this->output);
-        return 0;
+        $now = time();
+        if (config("app.commands.$command.lastRunAt") == date(config("app.commands.$command.timeFormat"), $now))
+            return 0;
+        if (strtotime(config("app.commands.$command.lastRunAt")) >= $now)
+            return 0;
+        if (!$this->getApplication()->has($command))
+            return 0;
+        config(["app.commands.$command.lastRunAt" => date(config("app.commands.$command.timeFormat"), $now)]);
+        // $this->info(date('H:i:s u', $now) . " : " . $command . config("app.commands.$command.lastRunAt"));
+        return parent::call($command, $arguments);
     }
 }

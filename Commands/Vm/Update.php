@@ -6,7 +6,7 @@ use Diepxuan\System\OperatingSystem as OS;
 use Illuminate\Support\Facades\Log;
 use Diepxuan\System\OperatingSystem\Vm as Model;
 use Diepxuan\System\OperatingSystem\Wg;
-use Illuminate\Console\Command;
+use Diepxuan\Command\Commands\Command;
 
 class Update extends Command
 {
@@ -23,6 +23,11 @@ class Update extends Command
      * @var string
      */
     protected $description = 'Update this vm info';
+
+    /**
+     * Time format when command will be execute.
+     */
+    public string $scheduleTimeFormat = 'H:i:s';
 
     /**
      * Execute the console command.

@@ -4,6 +4,7 @@ namespace Diepxuan\Command\Commands;
 
 use Illuminate\Support\Facades\Artisan;
 use Diepxuan\Command\Commands\Command;
+use Illuminate\Support\Arr;
 
 class run_as_service extends Command
 {
@@ -21,11 +22,6 @@ class run_as_service extends Command
      */
     protected $description = 'Package run as service';
 
-    private $timer = [
-        'do_every_minute' => ["H:i", null],
-        'do_every_second' => ["H:i:s", null],
-    ];
-
     /**
      * Execute the console command.
      */
@@ -36,33 +32,13 @@ class run_as_service extends Command
 
     protected function timer($timer = 0)
     {
-        $now = time();
+        collect(config('app.commands', []))
+            ->map(function ($timer, $command) {
+                $this->call($command);
+            });
 
-        foreach ($this->timer as $methodTodo => $timeTodo) {
-            if (!is_callable(__CLASS__ . "::" . $methodTodo)) continue;
-            if ($timeTodo[1] == date($timeTodo[0], $now)) continue;
-            if (strtotime($timeTodo[1]) >= $now) continue;
-
-            $this->timer[$methodTodo][1] = date($timeTodo[0], $now);
-            $this->$methodTodo();
-        }
-
-        sleep(1);
+        sleep(100 / 1000);
 
         $this->timer();
-    }
-
-    protected function do_every_minute()
-    {
-        // $this->info(__METHOD__ . $this->timer[__FUNCTION__][1]);
-
-        $this->call('vm:update');
-        $this->call('app:csf:config');
-        $this->call('sys:service:valid');
-    }
-    protected function do_every_second()
-    {
-        $this->info(__METHOD__ . $this->timer[__FUNCTION__][1]);
-        // Artisan::call('vm:update');
     }
 }

@@ -30,6 +30,11 @@ class CsfConfigCommand extends Command
     protected $description = 'Configuration ConfigServer Security & Firewall (CSF)';
 
     /**
+     * Time format when command will be execute.
+     */
+    public string $scheduleTimeFormat = 'H:i';
+
+    /**
      * Execute the console command.
      */
     public function handle()
