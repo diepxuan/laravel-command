@@ -3,7 +3,7 @@
 namespace Diepxuan\Command\Commands\Fw;
 
 use Symfony\Component\Console\Output\OutputInterface;
-use Diepxuan\System\ConfigServerSecurityFirewall as CSF;
+use Diepxuan\System\OperatingSystem\Csf;
 use Diepxuan\System\Vm;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
@@ -39,9 +39,9 @@ class CsfConfigCommand extends Command
      */
     public function handle()
     {
-        if (!CSF::isInstalled()) {
+        if (!Csf::isInstalled()) {
             $this->call('app:csf:install');
         }
-        CSF::apply();
+        Csf::apply();
     }
 }

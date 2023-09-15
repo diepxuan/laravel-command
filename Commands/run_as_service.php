@@ -37,7 +37,7 @@ class run_as_service extends Command
                 $this->call($command);
             });
 
-        sleep(100 / 1000);
+        sleep(10 / 1000);
 
         $this->timer();
     }

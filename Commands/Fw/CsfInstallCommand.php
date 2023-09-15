@@ -2,7 +2,7 @@
 
 namespace Diepxuan\Command\Commands\Fw;
 
-use Diepxuan\System\ConfigServerSecurityFirewall as CSF;
+use Diepxuan\System\OperatingSystem\ConfigServerSecurityFirewall as CSF;
 use Illuminate\Support\Facades\Process;
 use Diepxuan\Command\Commands\Command;
 use Illuminate\Process\Pipe;
