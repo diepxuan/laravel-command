@@ -52,6 +52,27 @@ abstract class Command extends BaseCommand
         }
     }
 
+    /**
+     * Prompt the user for input.
+     *
+     * @param  string  $question
+     * @param  string|null  $default
+     * @return mixed
+     */
+    public function ask($question, $default = null, $callback = null)
+    {
+        if (is_null($callback)) {
+            return parent::ask($question, $default);
+        }
+        try {
+            $answer = parent::ask($question, $default);
+            call_user_func($callback, $answer);
+            return $this;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
     /*
      * Displays the given string as title.
      */
@@ -90,7 +111,6 @@ abstract class Command extends BaseCommand
         if (!$this->getApplication()->has($command))
             return 0;
         config(["app.commands.$command.lastRunAt" => date(config("app.commands.$command.timeFormat"), $now)]);
-        // $this->info(date('H:i:s u', $now) . " : " . $command . config("app.commands.$command.lastRunAt"));
         return parent::call($command, $arguments);
     }
 }
