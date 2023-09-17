@@ -34,7 +34,6 @@ class Update extends Command
      */
     public function handle()
     {
-        $this->info("  Vm informations");
         $os = new OS();
         $vm = Model::updateOrCreate(["vm_id" => $os->hostFullName]);
         $vm->name     = $os->hostName;
