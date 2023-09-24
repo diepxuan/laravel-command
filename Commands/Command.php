@@ -95,13 +95,13 @@ abstract class Command extends BaseCommand
     }
 
     /**
-     * Call another console command.
+     * Call another console command as schedule.
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
      * @return int
      */
-    public function call($command, array $arguments = [])
+    public function scheduleCall($command, array $arguments = [])
     {
         $now = time();
         if (config("app.commands.$command.lastRunAt") == date(config("app.commands.$command.timeFormat"), $now))
