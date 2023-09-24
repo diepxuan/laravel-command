@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Console\Commands\Sys;
+namespace Diepxuan\Command\Commands\Sys;
 
 use Diepxuan\System\OperatingSystem as OS;
-use Illuminate\Console\Command;
+use Diepxuan\Command\Commands\Command;
 
 class SwapOffCommand extends Command
 {

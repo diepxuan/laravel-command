@@ -3,7 +3,6 @@
 namespace Diepxuan\Command\Commands\Vm;
 
 use Diepxuan\System\OperatingSystem as OS;
-use Illuminate\Support\Facades\Log;
 use Diepxuan\System\OperatingSystem\Vm as Model;
 use Diepxuan\System\OperatingSystem\Wg;
 use Diepxuan\Command\Commands\Command;
@@ -49,7 +48,6 @@ class Update extends Command
         // $wg_key       = explode(" ", $request->input("wg_key"));
         // $vm->wgkey    = count($wg_key) > 0 ? $wg_key : $vm->wgkey;
 
-        // dd($vm);
         $vm->touch();
         $vm->save();
     }

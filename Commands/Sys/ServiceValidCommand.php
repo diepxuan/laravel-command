@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Console\Commands\Sys;
+namespace Diepxuan\Command\Commands\Sys;
 
 use Diepxuan\System\OperatingSystem\Service;
-use Illuminate\Console\Command;
+use Diepxuan\Command\Commands\Command;
 
 class ServiceValidCommand extends Command
 {
@@ -20,6 +20,11 @@ class ServiceValidCommand extends Command
      * @var string
      */
     protected $description = 'Valid and restart services running in this system.';
+
+    /**
+     * Time format when command will be execute.
+     */
+    public string $scheduleTimeFormat = 'H:i';
 
     /**
      * Execute the console command.

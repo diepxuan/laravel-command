@@ -3,7 +3,7 @@
 namespace Diepxuan\Command\Commands\Ip;
 
 use Diepxuan\System\OperatingSystem as OS;
-use Illuminate\Console\Command;
+use Diepxuan\Command\Commands\Command;
 
 class WanCommand extends Command
 {
