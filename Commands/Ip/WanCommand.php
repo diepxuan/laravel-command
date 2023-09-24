@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Ip;
+namespace Diepxuan\Command\Commands\Ip;
 
 use Diepxuan\System\OperatingSystem as OS;
 use Illuminate\Console\Command;
@@ -26,7 +26,6 @@ class WanCommand extends Command
      */
     public function handle()
     {
-        $os = new OS();
-        $this->line("$os->ipWan");
+        $this->line(OS::getIpWan());
     }
 }
