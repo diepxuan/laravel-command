@@ -34,7 +34,10 @@ class run_as_service extends Command
     {
         collect(config('app.commands', []))
             ->map(function ($timer, $command) {
-                $this->call($command);
+                try {
+                    $this->scheduleCall($command);
+                } catch (\Throwable $th) {
+                }
             });
 
         sleep(10 / 1000);
