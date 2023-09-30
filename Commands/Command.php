@@ -39,12 +39,9 @@ abstract class Command extends BaseCommand
      */
     public function task(string $title = '', $task = null, $skip = false): mixed
     {
-        if (is_null($task) || $skip) {
-            $this->output->writeln($title);
-            return true;
-        }
         try {
-            $callback = call_user_func($task);
+            if (!is_null($task) && !$skip)
+                $callback = call_user_func($task);
             $this->output->writeln($title);
             return $callback;
         } catch (\Throwable $th) {
